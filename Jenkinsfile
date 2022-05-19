@@ -4,8 +4,8 @@ stages {
 stage('Build/Deploy app to staging') {
 steps {
     sshPublisher(
-        publishers: [s
-        shPublisherDesc(
+        publishers: [
+            sshPublisherDesc(
             configName: 'staging',
              transfers: [
                  sshTransfer(
