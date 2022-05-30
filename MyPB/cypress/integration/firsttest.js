@@ -12,14 +12,14 @@ describe('My First passing Test', () => {
     it('fill in the User Story Form', () => {
         cy.visit('http://localhost:4200/')
         cy.get('.mat-raised-button > .mat-button-wrapper').click()
-        cy.get('#mat-dialog-1').within(($) => {
+        cy.get('mat-form-field').within(($) => {
             // you have access to the found form via
             // the jQuery object $form if you need it
-          
+            const newAsA = 'Feed the cat'
             // cy.get() will only search for elements within form,
             // not within the entire document
-            cy.get('input[name=".mat-form-field.ng-tns-c52-5 > .mat-form-field-wrapper > .mat-form-field-flex"]').type('john.doe@email.com')
-            //cy.get('input[name="password"]').type('password')
+            cy.get('input[name=AsA]').type(`${newAsA}`)
+            //cy.get('input[name="As A"]').type('password')
             //cy.root().submit()
           })
     })
