@@ -1,0 +1,6 @@
+projectKey=2022_team6
+serverUrl=https://sonar.creis.pt
+serverVersion=8.3.1.34397
+dashboardUrl=https://sonar.creis.pt/dashboard?id=2022_team6
+ceTaskId=AYEmFnuRycD9pccTjK5X
+ceTaskUrl=https://sonar.creis.pt/api/ce/task?id=AYEmFnuRycD9pccTjK5X
