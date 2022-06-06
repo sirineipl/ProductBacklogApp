@@ -53,9 +53,7 @@ echo 'Releasing to production'
 }
 }
 }
-agent none
- stages {
- stage('Run Tests') {
+stage('Run Tests') {
  parallel {
  stage('End-to-End Tests') {
  agent {
@@ -66,15 +64,12 @@ steps {
  }
  }
  stage('Static Analysis') {
- agent {
- label "sonarqube"
- }
-steps {
- sh "..\..\sonar-scanner-4.7.0.2747-windows\bin\sonar-scanner-debug.bat”
- }
- }
- }
- }
- }
-
+         environment {
+                 SCANNER_HOME = tool 'sonarscanner'
+         }
+        steps {
+                 sh "$SCANNER_HOME/bin/sonar-scanner"
+        }
+}
+}
 }
