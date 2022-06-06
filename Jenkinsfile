@@ -21,7 +21,7 @@ sshPublisher(
                 cleanRemote: false,
                  excludes: 'node_modules/', 
                  execCommand: 'echo ‘Replace me by your build/install scripts’ ',
-                 cd MyPB
+                 sh "cd MyPB"
                  npm i
                   pm2 restart MyPB'',
                   execTimeout: 120000, 
