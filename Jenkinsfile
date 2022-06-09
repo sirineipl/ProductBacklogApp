@@ -7,7 +7,7 @@ tools {nodejs "NodeJS"}
       }
 
       options {
-              ansiColor('xterm')
+       ansiColor('xterm')
       }
 stages{
     stage('Build/Deploy app to staging') {
