@@ -57,9 +57,9 @@ stages{
     stage('Run Tests') {
         parallel {
             stage('End-to-End Tests') {
-                agent {
+               /* agent {
                     label "tests"
-                }
+                }*/
                 steps {
                     sh "MyPB/cypress"
                 }
