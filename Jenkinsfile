@@ -20,10 +20,10 @@ sshPublisher(
             sshTransfer(
                 cleanRemote: false,
                  excludes: 'node_modules/', 
-                 execCommand: 'echo ‘Replace me by your build/install scripts’ ',
-                 sh "cd MyPB"
+                 execCommand: ''',
+                 cd MyPB
                  npm i
-                  pm2 restart MyPB'',
+                  pm2 restart MyPB''',
                   execTimeout: 120000, 
                   flatten: false, 
                   makeEmptyDirs: false, 
