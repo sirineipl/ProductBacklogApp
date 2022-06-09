@@ -59,7 +59,7 @@ stage('Run Tests') {
  agent {
  label "tests"
  }
- 
+
 steps {
  sh "MyPB/cypress"
  }
@@ -71,6 +71,9 @@ steps {
         steps {
                  sh "$SCANNER_HOME/bin/sonar-scanner"
         }
+}
+}
+}
 }
 }
 }
