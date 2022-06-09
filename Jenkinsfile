@@ -9,70 +9,69 @@ tools {nodejs "NodeJS"}
       options {
               ansiColor('xterm')
       }
-stages {
-stage('Build/Deploy app to staging') {
-steps {
-sshPublisher(
-    publishers: [
-    sshPublisherDesc(
-        configName: 'staging',
-        transfers: [
-            sshTransfer(
-                cleanRemote: false,
-                 excludes: 'node_modules/', 
-                 execCommand: ''',
-                 cd MyPB
-                 npm i
-                  pm2 restart MyPB''',
-                  execTimeout: 120000, 
-                  flatten: false, 
-                  makeEmptyDirs: false, 
-                  noDefaultExcludes: false, 
-                  patternSeparator: '[, ]+', 
-                  remoteDirectory: '', 
-                  remoteDirectorySDF: false, 
-                  removePrefix: '', 
-                  sourceFiles: 'MyPB/*')], 
-                  usePromotionTimestamp: false, 
-                  useWorkspaceInPromotion: false, 
-                  verbose: true)])
-}
-stage('Run automated tests') {
-steps {
-echo 'Running automated tests'
-}
-}
-stage('Perform manual testing') {
-steps {
-echo 'Performing manual testing '
-}
-}
-stage('Release to production') {
-steps {
-echo 'Releasing to production'
-}
-}
-}
-stage('Run Tests') {
- parallel {
- stage('End-to-End Tests') {
- agent {
- label "tests"
- }
-
-steps {
- sh "MyPB/cypress"
- }
- }
- stage('Static Analysis') {
-         environment {
-                 SCANNER_HOME = tool 'sonarscanner'
-         }
+stages{
+    stage('Build/Deploy app to staging') {
         steps {
-                 sh "$SCANNER_HOME/bin/sonar-scanner"
+            sshPublisher(
+                publishers: [
+                sshPublisherDesc(
+                configName: 'staging',
+                transfers: [
+                sshTransfer(
+                cleanRemote: false,
+                excludes: 'node_modules/', 
+                execCommand: ''',
+                cd MyPB
+                npm i
+                pm2 restart MyPB''',
+                execTimeout: 120000, 
+                flatten: false, 
+                makeEmptyDirs: false, 
+                noDefaultExcludes: false, 
+                patternSeparator: '[, ]+', 
+                remoteDirectory: '', 
+                remoteDirectorySDF: false, 
+                removePrefix: '', 
+                sourceFiles: 'MyPB/*')], 
+                usePromotionTimestamp: false, 
+                useWorkspaceInPromotion: false, 
+                verbose: true)])
         }
-}
-}
-}
+    }
+    stage('Run automated tests') {
+        steps {
+            echo 'Running automated tests'
+        }
+    }
+    stage('Perform manual testing') {
+        steps {
+            echo 'Performing manual testing '
+        }
+    }
+    stage('Release to production') {
+        steps {
+            echo 'Releasing to production'
+        }
+    }
+    stage('Run Tests') {
+        parallel {
+            stage('End-to-End Tests') {
+                agent {
+                    label "tests"
+                }
+                steps {
+                    sh "MyPB/cypress"
+                }
+            }
+            stage('Static Analysis') {
+                environment {
+                    SCANNER_HOME = tool 'sonarscanner'
+                }
+                steps {
+                    sh "$SCANNER_HOME/bin/sonar-scanner"
+                }
+            }
+        }
+    }
 }
 }
