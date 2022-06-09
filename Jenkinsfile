@@ -1,7 +1,7 @@
 pipeline{
   agent any 
       tools {
-          nodejs NodeJS
+          nodejs "NodeJS"
       }
       parameters{
           string(name: 'SPEC', defaultValue:"cypress/integration/1-getting-started/firsttest.js", description: "Enter the cypress script path that you want to execute")
