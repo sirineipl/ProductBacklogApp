@@ -1,13 +1,15 @@
 pipeline{
 agent any 
-tools {nodejs "NodeJS"}
+      tools {
+          nodejs "NodeJS"
+      }
       parameters{
           string(name: 'SPEC', defaultValue:"cypress/integration/1-getting-started/firsttest.js", description: "Enter the cypress script path that you want to execute")
           choice(name: 'BROWSER', choices:['electron', 'chrome', 'edge', 'firefox'], description: "chrome")
       }
 
       options {
-       ansiColor('xterm')
+          ansiColor('xterm')
       }
 stages{
     stage('Build/Deploy app to staging') {
