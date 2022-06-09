@@ -69,6 +69,8 @@ stages{
                     SCANNER_HOME = tool 'sonarscanner'
                 }
                 steps {
+                    dir{'MyPB'}
+                    sh "pwd"
                     sh "$SCANNER_HOME/bin/sonar-scanner"
                 }
             }
