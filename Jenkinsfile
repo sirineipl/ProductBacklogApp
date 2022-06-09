@@ -60,7 +60,7 @@ stage('Run Tests') {
  label "tests"
  }
 steps {
- sh "MyPB\cypress"
+ sh "MyPB/cypress"
  }
  }
  stage('Static Analysis') {
