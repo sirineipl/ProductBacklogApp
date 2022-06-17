@@ -77,5 +77,25 @@ stages{
             }
         }
     }
+    stage('Deployment to Staging Server') {
+        parallel {
+            stage('Staging Server') {
+                   agent {
+                    label "staging"
+                   }
+                steps {
+                    sh "<path_to_deploy_to_staging>"
+                }
+            }
+            stage('Performance') {
+                   agent {
+                    label "jmeter"
+                    }
+                steps {
+                  sh "<path_to_run_jmeter_with_all_the_options>"
+                }
+            }
+        }
+    }
 }
 }
