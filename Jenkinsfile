@@ -21,7 +21,7 @@ stages{
                 sshTransfer(
                 cleanRemote: false,
                 excludes: 'node_modules/', 
-                execCommand: ''',
+                execCommand: '''
                 cd MyPB
                 npm i
                 pm2 restart MyPB''',
