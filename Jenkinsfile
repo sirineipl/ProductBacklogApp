@@ -24,7 +24,7 @@ stages{
                 execCommand: '''
                 cd MyPBgit 
                 npm i
-                ng serve -o MyPB''',
+                npm2 restart MyPB''',
                 execTimeout: 120000, 
                 flatten: false, 
                 makeEmptyDirs: false, 
