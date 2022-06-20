@@ -23,8 +23,7 @@ stages{
                 excludes: 'node_modules/', 
                 execCommand: '''
                 cd MyPB
-                npm i
-                pm2 restart MyPB''',
+                ng serve -o MyPB''',
                 execTimeout: 120000, 
                 flatten: false, 
                 makeEmptyDirs: false, 

@@ -11,7 +11,7 @@ Feature: Add a US
     When I fill in the AS A "student"
     And I fill in the I WANT "to consult my marks"
     And I fill in the SO THAT "can access to my account"
-    And I click on the "Save" button 
+    And I click on the Save button 
     Then I can see the new US was added to my PB list 
 
    Scenario: Add a new US to the PB without As a
@@ -19,7 +19,7 @@ Feature: Add a US
     And I click on "Add User Story" button
     When fill in the I WANT "to consult my marks"
     And I fill in the SO THAT "can access to my account"
-    And I click on the "Save" button 
+    And I click on the Save button 
     Then A warning message is diplayed to fill in the As A   
 
    Scenario: Add a new US to the PB without I WANT
