@@ -22,7 +22,8 @@ stages{
                 cleanRemote: false,
                 excludes: 'node_modules/', 
                 execCommand: '''
-                cd MyPB
+                cd MyPBgit 
+                
                 ng serve -o MyPB''',
                 execTimeout: 120000, 
                 flatten: false, 
