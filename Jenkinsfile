@@ -22,9 +22,9 @@ stages{
                 cleanRemote: false,
                 excludes: 'node_modules/', 
                 execCommand: '''
-                cd MyPBgit 
+                cd MyPB
                 npm i
-                npm2 restart MyPB''',
+                pm2 restart MyPB''',
                 execTimeout: 120000, 
                 flatten: false, 
                 makeEmptyDirs: false, 
