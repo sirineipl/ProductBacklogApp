@@ -14,10 +14,8 @@
   <span>My Product Backlog App</span>
   <span class="example-spacer"></span>
   <button mat-raised-button color="warn" (click)="openDialog()"ng>Add User Story</button>
-  
 </mat-toolbar>
-
-//////////////////////table 
+////table
 <div class="container">
  <div style="margin-top:10px;">
   <mat-form-field appearance="standard">
@@ -28,27 +26,21 @@
     <table mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <ng-container matColumnDef="AsA">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> AS A</th>
+        <td mat-cell *matCellDef="let row"> {{row.AsA}} </td>
       </ng-container>
   
-      <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
-        <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+      <!-- want to Column -->
+      <ng-container matColumnDef="WANTTO">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> WANT TO </th>
+        <td mat-cell *matCellDef="let row"> {{row.WANTTO}}% </td>
       </ng-container>
   
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
-      </ng-container>
-  
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="fruit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </th>
-        <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+      <!-- so that Column -->
+      <ng-container matColumnDef="SOTHAT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> SO THAT </th>
+        <td mat-cell *matCellDef="let row"> {{row.SOTHAT}} </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -62,7 +54,6 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
-</div>
 </div>
 
 

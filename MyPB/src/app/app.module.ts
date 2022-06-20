@@ -12,9 +12,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+
 import {MatTableModule} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -34,7 +39,12 @@ import {MatSort} from '@angular/material/sort';
     MatInputModule,
     MatTableModule,
     MatPaginator,
-    MatSort
+    MatSort,
+    ReactiveFormsModule,
+    FormsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule
     
   ],
   providers: [],

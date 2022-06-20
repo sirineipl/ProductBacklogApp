@@ -1,16 +1,18 @@
 <h1 mat-dialog-title>Add User Story Form</h1>
 <div mat-dialog-content>
+
+  
     <mat-form-field appearance="outline">
         <mat-label>AS A</mat-label>
-        <input matInput placeholder="....">
-      </mat-form-field>
+        <input formControlName="asA" matInput placeholder="Asa">
+    </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label> I WANT </mat-label>
-        <input matInput placeholder="....">
+        <input formControlName="iWant" matInput placeholder="Iwant">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>SO THAT</mat-label>
-        <input matInput placeholder="....">
+        <input formControlName="soThat" matInput placeholder="Sothat">
       </mat-form-field>
 </div>
 <Div mat-dialog-action [align]="'end'">
