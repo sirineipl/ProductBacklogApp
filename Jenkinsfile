@@ -33,7 +33,7 @@ stages{
                 remoteDirectory: '', 
                 remoteDirectorySDF: false, 
                 removePrefix: '', 
-                sourceFiles: 'MyPB/*')], 
+                sourceFiles: 'MyPB/**/*')], 
                 usePromotionTimestamp: false, 
                 useWorkspaceInPromotion: false, 
                 verbose: true)])
