@@ -39,7 +39,7 @@ stages{
                 verbose: true)])
         }
     }
-    stage('Performance') {
+    stage('Performanc'){
                 steps {
                   sh "<path_to_run_jmeter_with_all_the_options>"
                 }
