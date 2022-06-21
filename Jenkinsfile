@@ -39,7 +39,7 @@ stages{
                 verbose: true)])
         }
     }
-    stage('Performanc'){
+    stage('Performance'){
                 steps {
                   sh "<path_to_run_jmeter_with_all_the_options>"
                 }
@@ -62,11 +62,8 @@ stages{
     stage('Run Tests') {
         parallel {
             stage('End-to-End Tests') {
-               /* agent {
-                    label "tests"
-                }*/
                 steps {
-                    sh "MyPB/cypress/"
+                    sh "MyPB/cypress"
                 }
             }
             stage('Static Analysis') {
@@ -82,8 +79,6 @@ stages{
             }
         }
     }
-    
-           
     
 }
 }
