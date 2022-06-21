@@ -61,7 +61,7 @@ stages{
                     label "tests"
                 }*/
                 steps {
-                    sh "MyPB/cypress/integration/endtoendtest"
+                    sh "MyPB/cypress/integration"
                 }
             }
             stage('Static Analysis') {
