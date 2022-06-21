@@ -39,6 +39,11 @@ stages{
                 verbose: true)])
         }
     }
+    stage('Performance') {
+                steps {
+                  sh "<path_to_run_jmeter_with_all_the_options>"
+                }
+            }
     stage('Run automated tests') {
         steps {
             echo 'Running automated tests'
@@ -61,7 +66,7 @@ stages{
                     label "tests"
                 }*/
                 steps {
-                    sh "MyPB/cypress/integration"
+                    sh "MyPB/cypress/"
                 }
             }
             stage('Static Analysis') {
@@ -77,25 +82,8 @@ stages{
             }
         }
     }
-    stage('Deployment to Staging Server') {
-        parallel {
-            stage('Staging Server') {
-                   agent {
-                    label "staging"
-                   }
-                steps {
-                    sh "<path_to_deploy_to_staging>"
-                }
-            }
-            stage('Performance') {
-                   agent {
-                    label "jmeter"
-                    }
-                steps {
-                  sh "<path_to_run_jmeter_with_all_the_options>"
-                }
-            }
-        }
+    
+           
     }
 }
 }
