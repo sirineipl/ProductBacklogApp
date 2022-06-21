@@ -1,3 +1,6 @@
+const newAsa = 'student'
+const newIwant = 'to consult my marks'
+const newSothat = 'can access to my account'
 describe('MyPB Homepage test', () => {
     it('launch homepage', () => {
         cy.visit('http://localhost:4200/')
@@ -37,6 +40,13 @@ describe('MyPB Homepage test', () => {
             //cy.get('input[name=AsA]').type(`${newAsA}`)
             //cy.get('input[name="As A"]').type('password')
             //cy.root().submit()
+            cy.get('#mat-dialog-0')
+            cy.get('#mat-input-0').type(`${newAsa}`)
+            .should('have.value', 'student')
+            cy.get('#mat-input-1').type(`${newIwant}`)
+            .should('have.value', 'to consult my marks')
+            cy.get('#mat-input-2').type(`${newSothat}`)
+            .should('have.value', 'can access to my account')
           })
           it('save the US form', () => {
             cy.get('.mat-raised-button > .mat-button-wrapper').click()

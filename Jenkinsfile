@@ -61,7 +61,7 @@ stages{
                     label "tests"
                 }*/
                 steps {
-                    sh "MyPB\cypress\integration\endtoendtest.js"
+                    sh "MyPB/cypress/integration/endtoendtest.js"
                 }
             }
             stage('Static Analysis') {
