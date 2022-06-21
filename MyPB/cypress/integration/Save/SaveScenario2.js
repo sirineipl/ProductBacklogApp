@@ -8,7 +8,6 @@ const newAsa = 'student'
 const newIwant = 'to consult my marks'
 const newSothat = 'can access to my account'
 
-scenario
 //second scenario Add a new US to the PB without As a
 Given('I access to the landing page', () => {
     cy.visit(url)
@@ -30,14 +29,12 @@ Given('I access to the landing page', () => {
   })
   And('I click on the Save button ', () => {
     cy.get('[mat-dialog-action=""] > .mat-primary').click()
-    cy.get('.mat-typography')
   
   })
   Then('A warning message is diplayed to fill in the As A', () => {
-    cy.get('.cdk-overlay-backdrop').should('be.visible')
     cy.get('.cdk-overlay-backdrop').should('not.contain', newAsa)
     cy.get('.cdk-overlay-backdrop').should('not.contain', newIwant)
     cy.get('.cdk-overlay-backdrop').should('not.contain', newSothat)
-    cy.get('#mat-dialog-0').should('not.be.visible')
+    cy.get('#mat-dialog-0').should('be.visible')
    
   })
