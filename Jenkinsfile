@@ -23,6 +23,7 @@ stages{
                 excludes: 'node_modules/', 
                 execCommand: '''
                 cd MyPB
+                npm ci
                 ng serve -o''',
                 execTimeout: 120000, 
                 flatten: false, 
