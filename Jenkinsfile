@@ -40,7 +40,7 @@ stages{
             }
             stage('Performance'){
                 steps {
-                  sh "C:\apache-jmeter-5.4.3\apache-jmeter-5.4.3\bin"
+                  sh "jmeter"
                 }
             }
         } 
