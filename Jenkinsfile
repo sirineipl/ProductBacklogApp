@@ -65,7 +65,7 @@ stages{
             stage('End-to-End Tests') {
                 steps {
                     dir ('MyPB/cypress'){
-                       sh "node_modules/.bin/cypress open"
+                       sh "npx cypress run"
                     }
                     
                 }
