@@ -40,7 +40,7 @@ stages{
             }
             stage('Performance'){
                 steps {
-                  sh "<path_to_run_jmeter_with_all_the_options>"
+                  sh "C:\apache-jmeter-5.4.3\apache-jmeter-5.4.3\bin"
                 }
             }
         } 
@@ -79,7 +79,7 @@ stages{
                 }
             }
         }
-        
+
     }
     
 }
