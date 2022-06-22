@@ -64,7 +64,10 @@ stages{
         parallel {
             stage('End-to-End Tests') {
                 steps {
-                    sh "MyPB/cypress"
+                    dir ('MyPB/cypress'){
+                       sh "node_modules/.bin/cypress open"
+                    }
+                    
                 }
             }
             stage('Static Analysis') {
