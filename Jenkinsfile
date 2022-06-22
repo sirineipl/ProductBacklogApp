@@ -11,6 +11,7 @@ pipeline{
           ansiColor('xterm')
       }*/
 stages{
+    parallel{
     stage('Build/Deploy app to staging') {
         steps {
             sshPublisher(
@@ -44,6 +45,7 @@ stages{
                   sh "<path_to_run_jmeter_with_all_the_options>"
                 }
             }
+    }
     stage('Run automated tests') {
         steps {
             echo 'Running automated tests'
