@@ -40,7 +40,7 @@ stages{
             }
             stage('Performance'){
                 steps {
-                  sh "jmeter"
+                  sh "jmeter -t /var/lib/jenkins/workspace/MYPBApppipeline/MyPB/MyPBPerformanceTest.jmx"
                 }
             }
         } 
