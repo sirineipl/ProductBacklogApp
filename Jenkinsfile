@@ -46,24 +46,24 @@ stages{
                   sh "<path_to_run_jmeter_with_all_the_options>"
                 }
             }
-        }
-    }    
-    stage('Run automated tests') {
-        steps {
-            echo 'Running automated tests'
-        }
-    }
-    stage('Perform manual testing') {
-        steps {
-            echo 'Performing manual testing '
-        }
-    }
-    stage('Release to production') {
-        steps {
-            echo 'Releasing to production'
-        }
-    }
-    stage('Run Tests') {
+        } 
+    }  
+            stage('Run automated tests') {
+                steps {
+                   echo 'Running automated tests'
+                }
+            }
+            stage('Perform manual testing') {
+                steps {
+                  echo 'Performing manual testing '
+                }
+            }
+            stage('Release to production') {
+                steps {
+                  echo 'Releasing to production'
+                }
+            }
+            stage('Run Tests') {
         parallel {
             stage('End-to-End Tests') {
                 steps {
@@ -82,7 +82,6 @@ stages{
                 }
             }
         }
-    }
+            }
     
-}
 }
