@@ -11,8 +11,9 @@ pipeline{
           ansiColor('xterm')
       }*/
 stages{
-    parallel{
     stage('Build/Deploy app to staging') {
+        parallel{
+            stage('Staging Server') {
         steps {
             sshPublisher(
                 publishers: [
