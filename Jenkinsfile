@@ -65,7 +65,8 @@ stages{
             stage('End-to-End Tests') {
                 steps {
                     dir ('MyPB/cypress'){
-                       sh "npx cypress run"
+                        sh "npm install cypress --save-dev"
+                        sh "npx cypress run"
                     }
                     
                 }
