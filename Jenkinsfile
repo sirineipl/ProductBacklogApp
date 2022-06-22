@@ -40,6 +40,7 @@ stages{
                 useWorkspaceInPromotion: false, 
                 verbose: true)])
         }
+            }
     }
     stage('Performance'){
                 steps {
