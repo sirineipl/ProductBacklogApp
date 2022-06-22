@@ -7,9 +7,6 @@ pipeline{
           string(name: 'SPEC', defaultValue:"cypress/integration/1-getting-started/firsttest.js", description: "Enter the cypress script path that you want to execute")
           choice(name: 'BROWSER', choices:['electron', 'chrome', 'edge', 'firefox'], description: "chrome")
       }
-/*      options {
-          ansiColor('xterm')
-      }*/
 stages{
     stage('Build/Deploy app to staging') {
         parallel{
@@ -63,7 +60,7 @@ stages{
                   echo 'Releasing to production'
                 }
             }
-            stage('Run Tests') {
+    stage('Run Tests') {
         parallel {
             stage('End-to-End Tests') {
                 steps {
@@ -82,7 +79,7 @@ stages{
                 }
             }
         }
-            }
+    }
     
 }
 }
