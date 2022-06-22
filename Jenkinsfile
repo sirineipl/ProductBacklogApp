@@ -24,7 +24,7 @@ stages{
                     cd MyPB
                     npm ci
                     ng serve -o''',
-                    execTimeout: 120000, 
+                    execTimeout: 600000, 
                     flatten: false, 
                     makeEmptyDirs: false, 
                     noDefaultExcludes: false, 
@@ -40,7 +40,7 @@ stages{
             }
             stage('Performance'){
                 steps {
-                  sh "jmeter -t /var/lib/jenkins/workspace/MYPBApppipeline/MyPB/MyPBPerformanceTest.jmx"
+                  sh "jmeter -n -t /var/lib/jenkins/workspace/MYPBApppipeline@2/MyPB/MyPBPerformanceTest.jmx"
                 }
             }
         } 
