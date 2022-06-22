@@ -14,40 +14,40 @@ stages{
     stage('Build/Deploy app to staging') {
         parallel{
             stage('Staging Server') {
-        steps {
-            sshPublisher(
-                publishers: [
-                sshPublisherDesc(
-                configName: 'staging',
-                transfers: [
-                sshTransfer(
-                cleanRemote: false,
-                excludes: 'node_modules/', 
-                execCommand: '''
-                cd MyPB
-                npm ci
-                ng serve -o''',
-                execTimeout: 120000, 
-                flatten: false, 
-                makeEmptyDirs: false, 
-                noDefaultExcludes: false, 
-                patternSeparator: '[, ]+', 
-                remoteDirectory: '', 
-                remoteDirectorySDF: false, 
-                removePrefix: '', 
-                sourceFiles: 'MyPB/**/*')], 
-                usePromotionTimestamp: false, 
-                useWorkspaceInPromotion: false, 
-                verbose: true)])
-        }
+                steps {
+                    sshPublisher(
+                    publishers: [
+                    sshPublisherDesc(
+                    configName: 'staging',
+                    transfers: [
+                    sshTransfer(
+                    cleanRemote: false,
+                    excludes: 'node_modules/', 
+                    execCommand: '''
+                    cd MyPB
+                    npm ci
+                    ng serve -o''',
+                    execTimeout: 120000, 
+                    flatten: false, 
+                    makeEmptyDirs: false, 
+                    noDefaultExcludes: false, 
+                    patternSeparator: '[, ]+', 
+                    remoteDirectory: '', 
+                    remoteDirectorySDF: false, 
+                    removePrefix: '', 
+                    sourceFiles: 'MyPB/**/*')], 
+                    usePromotionTimestamp: false, 
+                    useWorkspaceInPromotion: false, 
+                    verbose: true)])
+                }
             }
-    }
-    stage('Performance'){
+            stage('Performance'){
                 steps {
                   sh "<path_to_run_jmeter_with_all_the_options>"
                 }
             }
-    }
+        }
+    }    
     stage('Run automated tests') {
         steps {
             echo 'Running automated tests'
