@@ -6,9 +6,6 @@ Feature: Delete a US from list
   
   @focus
   Scenario: Delete a selected US from the PB
-    Given I open the application
-    And I access to the landing page
-    And I can see the list of USs in my PB
-    And I select a US to delete it
-    When I click on the delete button 
-    Then I can see that the US was removed from the PB
+    Given I access to the landing page
+    When I click ont the delete of a US
+    Then the was removed from the PB
