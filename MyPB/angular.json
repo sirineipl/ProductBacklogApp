@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "MyPB"
+  "defaultProject": "MyPB",
+  "cli": {
+    "analytics": "60a0c8a8-f669-462f-9b7c-20b9a96aedbf"
+  }
 }
