@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Add User Story Form</h1>
 <div mat-dialog-content>
-
+  <form [formGroup]="pbForm">
   
     <mat-form-field appearance="outline">
         <mat-label>AS A</mat-label>
@@ -14,6 +14,7 @@
         <mat-label>SO THAT</mat-label>
         <input formControlName="soThat" matInput placeholder="Sothat">
       </mat-form-field>
+  </form>
 </div>
 <Div mat-dialog-action [align]="'end'">
 <button mat-raised-button color="warn" mat-dialog-close> Close </button>
