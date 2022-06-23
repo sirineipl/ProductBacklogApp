@@ -1,32 +1,33 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'MyPB';
 
   
-  displayedColumns: string[] = ['AsA', 'WANTTO', 'SOTHAT'];
+  displayedColumns: string[] = ['asA', 'iWant', 'soThat', 'action']
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog : MatDialog) {
+  constructor(private dialog : MatDialog, private api: ApiService) {
     
   }
-  /* to add after
+  // to add after
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }*///
+    this.getAllUS();
+  }
 
   
   openDialog() {
@@ -35,10 +36,26 @@ export class AppComponent {
       
     });
   }
-  /*to add after
-  getAllProducts(){
-
-  }*/
+  //to add after
+  getAllUS(){
+  this.api.getUS()
+    .subscribe({
+      next:(res)=>{
+       this.dataSource = new MatTableDataSource(res);
+       this.dataSource.paginator = this.paginator;
+       this.dataSource.sort = this.sort
+      },
+      error:(err)=>{
+        alert("Error while fetching the US")
+      }
+    })
+  }
+  editUS(row: any) {
+    this.dialog.open(DialogComponent, {
+      width: '30%',
+      data: row
+    })
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

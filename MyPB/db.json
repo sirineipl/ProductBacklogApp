@@ -1,6 +1,23 @@
 {
   "USList": [
-    
+    {
+      "asA": "college student",
+      "iWant": "I want my exam results as soon as possible",
+      "soThat": "I can plan my summer break",
+      "id": 5
+    },
+    {
+      "asA": "teaching assistant",
+      "iWant": "I want to mark exams on the weekends",
+      "soThat": "I can focus on my research project",
+      "id": 6
+    },
+    {
+      "asA": "teaching assistant",
+      "iWant": "I want to paste mark exams from spreadsheet",
+      "soThat": "I can save time on data entry",
+      "id": 7
+    }
   ],
   "comments": [
     {
