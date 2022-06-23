@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ApiService } from '../services/api.service';
+import { ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-dialog',
@@ -11,7 +11,7 @@ import { ApiService } from '../services/api.service';
 export class DialogComponent implements OnInit{
 
   pbForm !: FormGroup;
-  ActionBtn: String = "Save";
+  actionBtn: String = "save";
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData : any,
     private dialogRef: MatDialogRef<DialogComponent>) { }
@@ -26,12 +26,10 @@ export class DialogComponent implements OnInit{
       soThat: ['', Validators.required]
     });
     if (this.editData) {
-      this.ActionBtn = "Update";
+      this.actionBtn = "Update";
       this.pbForm.controls['asA'].setValue(this.editData.asA);
       this.pbForm.controls['iWant'].setValue(this.editData.iWant);
       this.pbForm.controls['soThat'].setValue(this.editData.soThat);
-
-
     }
   }
  
@@ -52,7 +50,22 @@ export class DialogComponent implements OnInit{
           })
       }
 
+    }else{
+      this.updateUS()
     }
+  }
+  updateUS(){
+    this.api.putUS(this.pbForm.value, this.editData.id)
+    .subscribe({
+      next:(res)=>{
+        alert("US updated successfully");
+        this.pbForm.reset();
+        this.dialogRef.close('update');
+      },
+      error:()=>{
+        alert("ERROR");
+      }
+      })
   }
 
 }

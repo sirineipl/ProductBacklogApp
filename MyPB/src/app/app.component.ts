@@ -34,7 +34,11 @@ export class AppComponent implements OnInit{
     this.dialog.open(DialogComponent, {
       width: '30%'
       
-    });
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getAllUS();
+      }
+    })
   }
   //to add after
   getAllUS(){
@@ -54,7 +58,25 @@ export class AppComponent implements OnInit{
     this.dialog.open(DialogComponent, {
       width: '30%',
       data: row
+    }).afterClosed().subscribe(val=>{
+      if(val === 'update'){
+        this.getAllUS();
+      }
     })
+  }
+  deleteUS(id:number){
+    this.api.deleteUS(id)
+    .subscribe({
+      next:(res)=>{
+        alert("US deleted successfully");
+        this.getAllUS();
+      },
+      error:()=>{
+        alert("ERROR")
+      }
+    })
+      
+
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
