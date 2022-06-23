@@ -33,7 +33,7 @@ Then ('I click on the Save button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 And ('I can see the new US was added to my PB list', () => {
-  cy.get('.cdk-overlay-backdrop').should('be.visible')
+  cy.get('.mat-typography').should('be.visible')
   //cy.get('.cdk-overlay-backdrop').contains(alert,"US added successfully")
   .expect(alert).to.be.enable
   cy.get('.cdk-overlay-backdrop').should('contain', newAsa)
@@ -65,9 +65,10 @@ When('I click on the Save button ', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then('A warning message is diplayed to fill in the As A', () => {
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newAsa)
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newIwant)
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newSothat)
+  cy.get('.mat-typography').should('not.be.visible')
+  cy.get('.mat-typography').should('not.contain', newAsa)
+  cy.get('.mat-typography').should('not.contain', newIwant)
+  cy.get('.mat-typography').should('not.contain', newSothat)
   cy.get('.cdk-overlay-backdrop').contains(alert,"US added successfully")
  
 })
@@ -96,11 +97,11 @@ And('I click on the Save button ', () => {
 
 })
 Then('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('be.not.visible')
+  cy.get('.mat-typography').should('be.not.visible')
   cy.get('.cdk-overlay-backdrop').contains(alert,"ERROR")
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newAsa)
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newIwant)
-  cy.get('.cdk-overlay-backdrop').should('not.contain', newSothat)
+  cy.get('..mat-typography').should(not.contain, newAsa)
+  cy.get('..mat-typography').should(not.contain, newIwant)
+  cy.get('.mat-typography').should(not.contain, newSothat)
  
 })
 
