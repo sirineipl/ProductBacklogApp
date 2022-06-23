@@ -5,8 +5,8 @@ import { Then } from "cypress-cucumber-preprocessor/steps";
 
 const url = 'http://localhost:4200/'
 const newAsa = 'student'
-const newIwant = 'to consult my marks'
-const newSothat = 'can access to my account'
+const newIwant = 'to see entire class average'
+const newSothat = 'I can judge how difficult it was'
 
   
 
@@ -189,7 +189,7 @@ And ('I do not edit the US', () => {
 And ('I click on update button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
-And ('I can see that the US was not modified in PB table ', () => {
+And ('I can see that the US was not modified in PB table', () => {
   cy.get('tbody > :nth-child(1) > .cdk-column-asA').should('include.text',cy.get('#mat-input-1'))
   cy.get('tbody > :nth-child(1) > .cdk-column-iWant').should('include.text',cy.get('#mat-input-2'))
   cy.get('tbody > :nth-child(1) > .cdk-column-soThat').should('include.text',cy.get('#mat-input-3'))
