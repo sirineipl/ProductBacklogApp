@@ -6,11 +6,9 @@ Feature: Edit a US
   
   @focus
   Scenario: Edit a US from the PB
-    Given I open the application
-    And I access to the landing page
+    Given I access to the landing page
     And I can see my list of USs in my PB
-    When I slect a US from the list
-    And I click on edit button
+    When I click on edit button of a US
     Then I can see that the US in the form
     And I modify the US 
     And I click on update button

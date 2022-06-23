@@ -28,6 +28,16 @@ export class DialogComponent implements OnInit{
   addUs(){
     if(this.pbForm.valid){
       this.api.postUS(this.pbForm.value)
+      .subscribe({
+        next:(res)=>{
+          alert("US added successfully");
+          this.pbForm.reset();
+          this.dialogRef.close('save');
+        },
+          error:(err)=>{
+          alert("ERROR")
+          }
+      })
     }
   }
 

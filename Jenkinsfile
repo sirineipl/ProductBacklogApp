@@ -64,7 +64,7 @@ stages{
         parallel {
             stage('End-to-End Tests') {
                 steps {
-                    dir ('MyPB/cypress'){
+                    dir ('/var/lib/jenkins/workspace/MYPBApppipeline@2/MyPB/cypress/endtoendtest'){
                         sh "npm install cypress --save-dev"
                         sh "npx cypress run"
                     }

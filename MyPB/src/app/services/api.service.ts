@@ -14,4 +14,5 @@ export class ApiService {
    getUS(){
     return this.http.get<any>("http://localhost:3000/USList/");
   }
+
 }
