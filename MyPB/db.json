@@ -1,22 +1,28 @@
 {
   "USList": [
     {
-      "asA": "college student",
-      "iWant": "I want my exam results as soon as possible",
-      "soThat": "I can plan my summer break",
-      "id": 5
-    },
-    {
-      "asA": "teaching assistant",
-      "iWant": "I want to mark exams on the weekends",
-      "soThat": "I can focus on my research project",
-      "id": 6
+      "asA": "teacherstudentto see entire class average",
+      "iWant": "paste markstudentto see entire class averageI can judge how difficult it wasto see entire class averageI can judge how difficult it wasto see entire class averagestudentI can judge how difficult it wasI can judge how difficult it was",
+      "soThat": "save time",
+      "id": 1
     },
     {
       "asA": "teaching assistant",
       "iWant": "I want to paste mark exams from spreadsheet",
-      "soThat": "I can save time on data entry",
-      "id": 7
+      "soThat": "\tI can save time on data entry",
+      "id": 3
+    },
+    {
+      "asA": "student",
+      "iWant": "to consult my marks",
+      "soThat": "can access to my account",
+      "id": 4
+    },
+    {
+      "asA": "student",
+      "iWant": "consult marks",
+      "soThat": "connect",
+      "id": 5
     }
   ],
   "comments": [

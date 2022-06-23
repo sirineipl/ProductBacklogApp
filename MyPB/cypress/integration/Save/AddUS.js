@@ -10,84 +10,51 @@ const newSothat = 'can access to my account'
 
   
 
-//first scenario Add a new US to the PB
+
+
+// scenario Add a new US to the PB without As a1
 Given('I access to the landing page', () => {
   cy.visit(url)
   })
 And('I click on "Add User Story" button', () => {
   cy.get('.mat-raised-button').click()
-  })
-And('I fill in the AS A "student"', () => {
   cy.get('#mat-dialog-0')
-  cy.get('#mat-input-0').type(`${newAsa}`)
-})
-And('I fill in the I WANT "to consult my marks"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('#mat-input-1').type(`${newIwant}`)
-})
-And('I fill in the SO THAT "can access to my account"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('#mat-input-2').type(`${newSothat}`)
-})
-When ('I click on the Save button', () => {
-  cy.get('[mat-dialog-action=""] > .mat-primary').click()
-})
-Then ('I can see the new US was added to my PB list', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert)
-  //cy.get('.cdk-overlay-backdrop').contains(alert,"US added successfully")
-  /*cy.get('.mat-typography').should('contain', newAsa)
-  cy.get('.mat-typography').should('contain', newIwant)
-  cy.get('.mat-typography').should('contain', newSothat)
-  cy.get('#mat-dialog-0').should('not.be.visible')*/
-})
-
-//second scenario Add a new US to the PB without As a
-Given('I access to the landing page', () => {
-  cy.visit(url)
-  })
-And('I click on "Add User Story" button', () => {
-  cy.get('.mat-raised-button').click()
   })
 And('I fill in the I WANT "to consult my marks"', () => {
   cy.get('#mat-dialog-0')
-  cy.get('.mat-form-field.ng-tns-c52-2 > .mat-form-field-wrapper > .mat-form-field-flex')
-  cy.get('#mat-input-1').type(`${newIwant}`)
+  //cy.get('.mat-form-field.ng-tns-c52-2 > .mat-form-field-wrapper > .mat-form-field-flex')
+  cy.get('#mat-input-2').type(`${newIwant}`)
 })
 And('I fill in the SO THAT "can access to my account"', () => {
+  
   cy.get('#mat-dialog-0')
-  cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
-  cy.get('#mat-input-2').type(`${newSothat}`)
-  .should('have.value', 'can access to my account')
-
+  //cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
+  cy.get('#mat-input-3').type(`${newSothat}`)
 })
 When('I click on the Save button ', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then('A warning message is diplayed to fill in the As A', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.be.visible')
-  cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-asA').should('not.contain', newAsa)
+  cy.get(':nth-child(3) > .cdk-column-iWant').should('not.contain', newIwant)
+  cy.get(':nth-child(3) > .cdk-column-soThat').should('not.contain', newSothat)
 })
 
-//third scenario Add a new US to the PB without As a
+// scenario 2 
 Given('I access to the landing page', () => {
   cy.visit(url)
   })
 And('I click on "Add User Story" button', () => {
   cy.get('.mat-raised-button').click()
+  cy.get('#mat-dialog-0')
   })
 And('I fill in the AS A "student"', () => {
   cy.get('#mat-dialog-0')
-  cy.get('#mat-input-0').type(`${newAsa}`)
-  .should('have.value', 'student')
+  cy.get('#mat-input-1').type(`${newAsa}`)
 })
 And('I fill in the SO THAT "can access to my account"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
-  cy.get('#mat-input-2').type(`${newSothat}`)
-  .should('have.value', 'can access to my account')
+  //cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
+  cy.get('#mat-input-3').type(`${newSothat}`)
 
 })
 When('I click on the Save button ', () => {
@@ -95,11 +62,31 @@ When('I click on the Save button ', () => {
 
 })
 Then('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-asA').should('not.contain', newAsa)
+  cy.get(':nth-child(3) > .cdk-column-soThat').should('not.contain', newSothat)
  
+})
+
+//3th scenario 
+Given('I access to the landing page', () => {
+  cy.visit(url)
+  })
+And('I click on "Add User Story" button', () => {
+  cy.get('.mat-raised-button').click()
+  cy.get('#mat-dialog-0')
+  })
+And ('I fill in the AS A "student"', () => {
+  cy.get('#mat-input-1').type(`${newAsa}`)
+})
+And('I fill in the I WANT "to consult my marks"', () => {
+  cy.get('#mat-input-2').type(`${newIwant}`)
+})
+When ('I click on the Save button', () => {
+  cy.get('[mat-dialog-action=""] > .mat-primary').click()
+})
+Then ('An error message is diplayed', () => {
+  cy.get(':nth-child(3) > .cdk-column-asA').should('not.contain', newAsa)
+  cy.get(':nth-child(3) > .cdk-column-iWant').should('not.contain', newIwant)
 })
 
 //4th scenario 
@@ -108,48 +95,40 @@ Given('I access to the landing page', () => {
   })
 And('I click on "Add User Story" button', () => {
   cy.get('.mat-raised-button').click()
+  cy.get('#mat-dialog-0')
   })
-And ('I fill in the AS A "student"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('#mat-input-0').type(`${newAsa}`)
-  .should('have.value', 'student')
-})
-And('I fill in the I WANT "to consult my marks"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('#mat-input-1').type(`${newIwant}`)
+And('I fill in the SO THAT "can access to my account"', () => {
+  
+  //cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
+  cy.get('#mat-input-3').type(`${newSothat}`)
+
 })
 When ('I click on the Save button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then ('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-soThat').should('not.contain', newSothat)
 })
 
-//5th scenario 
+//5th scenario Add a new US to the PB
 Given('I access to the landing page', () => {
   cy.visit(url)
   })
 And('I click on "Add User Story" button', () => {
   cy.get('.mat-raised-button').click()
-  })
-And('I fill in the SO THAT "can access to my account"', () => {
   cy.get('#mat-dialog-0')
-  cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
-  cy.get('#mat-input-2').type(`${newSothat}`)
-  .should('have.value', 'can access to my account')
+  })
+And('I fill in the I WANT "to consult my marks"', () => {
+  
+  //cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
+  cy.get('#mat-input-2').type(`${newIwant}`)
 
 })
 When ('I click on the Save button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then ('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-iWant').should('not.contain', newIwant)
 })
 
 //6th scenario Add a new US to the PB
@@ -158,46 +137,19 @@ Given('I access to the landing page', () => {
   })
 And('I click on "Add User Story" button', () => {
   cy.get('.mat-raised-button').click()
-  })
-And('I fill in the SO THAT "can access to my account"', () => {
   cy.get('#mat-dialog-0')
-  cy.get('.mat-form-field.ng-tns-c52-3 > .mat-form-field-wrapper > .mat-form-field-flex')
-  cy.get('#mat-input-2').type(`${newSothat}`)
-  .should('have.value', 'can access to my account')
-
+  })
+And ('I fill in AS A "student"', () => {
+  cy.get('#mat-input-1').type(`${newAsa}`)
 })
 When ('I click on the Save button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then ('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-asA').should('not.contain', newAsa)
 })
 
 //7th scenario Add a new US to the PB
-Given('I access to the landing page', () => {
-  cy.visit(url)
-  })
-And('I click on "Add User Story" button', () => {
-  cy.get('.mat-raised-button').click()
-  })
-And ('I fill in AS A "student"', () => {
-  cy.get('#mat-dialog-0')
-  cy.get('#mat-input-0').type(`${newAsa}`)
-  .should('have.value', 'student')
-})
-When ('I click on the Save button', () => {
-  cy.get('[mat-dialog-action=""] > .mat-primary').click()
-})
-Then ('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
-})
-
-//8th scenario Add a new US to the PB
 Given('I access to the landing page', () => {
   cy.visit(url)
   })
@@ -208,11 +160,38 @@ When('I click on the Save button', () => {
   cy.get('[mat-dialog-action=""] > .mat-primary').click()
 })
 Then ('An error message is diplayed', () => {
-  cy.get('.cdk-overlay-backdrop').should('contain',alert, "ERROR")
-  /*cy.get('.mat-typography').should('not.contain', newAsa)
-  cy.get('.mat-typography').should('not.contain', newIwant)
-  cy.get('.mat-typography').should('not.contain', newSothat)*/
+  cy.get(':nth-child(3) > .cdk-column-asA').should('not.contain', newAsa)
+  cy.get(':nth-child(3) > .cdk-column-iWant').should('not.contain', newIwant)
+  cy.get(':nth-child(3) > .cdk-column-soThat').should('not.contain', newSothat)
   
+})
+
+//8th scenario Add a new US to the PB
+Given('I access to the landing page', () => {
+  cy.visit(url)
+  })
+And('I click on "Add User Story" button', () => {
+  cy.get('.mat-raised-button').click()
+  })
+And('I fill in the AS A student', () => {
+  cy.get('#mat-dialog-0')
+  cy.get('#mat-input-1').type(`${newAsa}`)
+})
+And('I fill in the I WANT to consult my marks', () => {
+  cy.get('#mat-dialog-0')
+  cy.get('#mat-input-2').type(`${newIwant}`)
+})
+And('I fill in the SO THAT can access to my account', () => {
+  cy.get('#mat-dialog-0')
+  cy.get('#mat-input-3').type(`${newSothat}`)
+})
+When ('I click on the Save button', () => {
+  cy.get('[mat-dialog-action=""] > .mat-primary > .mat-button-wrapper').click()
+})
+Then ('I can see the new US was added to my PB list', () => {
+  cy.get(':nth-child(4) > .cdk-column-asA').should('contain', newAsa)
+  cy.get(':nth-child(4) > .cdk-column-iWant').should('contain', newIwant)
+  cy.get(':nth-child(4) > .cdk-column-soThat').should('contain', newSothat)
 })
 
 
